@@ -46,6 +46,7 @@ export class FirebaseService {
       nameToSearch: value.name.toLowerCase(),
       surname: value.surname,
       age: parseInt(value.age),
+      role:value.role,
       avatar: avatar
     });
   }

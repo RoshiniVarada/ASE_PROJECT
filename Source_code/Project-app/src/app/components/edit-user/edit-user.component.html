@@ -40,6 +40,14 @@
               <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
             </ng-container>
           </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Role" class="form-control" formControlName="role">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.role">
+              <mat-error *ngIf="exampleForm.get('role').hasError(validation.type) && (exampleForm.get('role').dirty || exampleForm.get('role').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
 
           <div class="row submit-button-container">
             <div class="col-md-4">

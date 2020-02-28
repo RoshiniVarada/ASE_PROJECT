@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'home', component: HomeComponent },
+  { path: 'dashboard/new-user', component: NewUserComponent },
+  { path: 'dashboard/home', component: HomeComponent },
   { path: 'new-user', component: NewUserComponent },
   { path: 'home/home', component: HomeComponent },
   { path: 'home/new-user', component: NewUserComponent },

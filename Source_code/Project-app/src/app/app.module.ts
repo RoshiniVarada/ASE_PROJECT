@@ -35,7 +35,8 @@ import {
 } from "@angular/material";
 import { EditUserResolver } from './components/edit-user/edit-user.resolver';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DetailsComponent } from './components/details/details.component';
+
+import { ListDetailsComponent } from './components/list-details/list-details.component';
 
 const MAT_MODULES  = [
   MatButtonModule,
@@ -57,7 +58,8 @@ const MAT_MODULES  = [
     HomeComponent,
     NewUserComponent,
     EditUserComponent,
-    DetailsComponent
+    ListDetailsComponent,
+    ListDetailsComponent
 
   ],
   imports: [

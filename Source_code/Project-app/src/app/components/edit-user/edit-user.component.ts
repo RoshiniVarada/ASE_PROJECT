@@ -25,7 +25,10 @@ export class EditUserComponent implements OnInit {
    ],
    'age': [
      { type: 'required', message: 'Age is required.' },
-   ]
+   ],
+   'role': [
+    { type: 'required', message: 'Role is required.' },
+  ]
  };
 
   constructor(
@@ -51,7 +54,8 @@ export class EditUserComponent implements OnInit {
     this.exampleForm = this.fb.group({
       name: [this.item.name, Validators.required],
       surname: [this.item.surname, Validators.required],
-      age: [this.item.age, Validators.required]
+      age: [this.item.age, Validators.required],
+      role: [this.item.role, Validators.required]
     });
   }
 
