@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../shared/services/firebase.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-new-user',
@@ -37,7 +38,9 @@ export class NewUserComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService,
+    public authService: AuthService,
+    public ngZone: NgZone
   ) { }
 
   ngOnInit() {

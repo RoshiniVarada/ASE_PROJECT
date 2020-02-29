@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-list-details',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+     public authService: AuthService,
+    public ngZone: NgZone) {
+   
+    
+   }
 
   ngOnInit() {
   }

@@ -15,6 +15,7 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { NewUserComponent } from 'src/app/components/new-user/new-user.component';
 import { EditUserComponent } from 'src/app/components/edit-user/edit-user.component';
 import { EditUserResolver } from 'src/app/components/edit-user/edit-user.resolver';
+import { ListDetailsComponent } from 'src/app/components/list-details/list-details.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -25,12 +26,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard/new-user', component: NewUserComponent },
-  { path: 'dashboard/home', component: HomeComponent },
   { path: 'new-user', component: NewUserComponent },
-  { path: 'home/home', component: HomeComponent },
-  { path: 'home/new-user', component: NewUserComponent },
-  { path: 'home/home/new-user', component: NewUserComponent },
+  {path:'list-details',component:ListDetailsComponent},
   { path: 'details/:id', component: EditUserComponent, resolve:{data : EditUserResolver} }
 ];
 

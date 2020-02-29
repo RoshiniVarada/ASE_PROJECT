@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FirebaseService } from '../../shared/services/firebase.service';
 import { Router, Params } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    public authService: AuthService,
+    public ngZone: NgZone
   ) { }
 
   ngOnInit() {
@@ -69,6 +72,13 @@ export class HomeComponent implements OnInit {
       });
     });
     return result;
+  }
+
+  goToUserProfile(){
+    this.router.navigate(['/list-details']);
+  }
+  goToNewUser(){
+    this.router.navigate(['/new-user']);
   }
 
 }
