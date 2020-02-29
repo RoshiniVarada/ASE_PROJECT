@@ -13,6 +13,7 @@ import { FirebaseService } from './firebase.service';
 export class AuthService {
   userData: any; // Save logged in user data
   items: any;
+  login: boolean;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -124,17 +125,21 @@ export class AuthService {
         .subscribe(resp => {
           this.items = resp;
           for(var i=0;i< resp.length;i++){
-               if(this.items[i].payload.doc.data().email==result.user.email){
+            if(this.login==false){
+              if(this.items[i].payload.doc.data().email==result.user.email){
                 console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email,i)
                  if(this.items[i].payload.doc.data().role=="admin"){
+                   this.login=true;
                   this.router.navigate(['home']);
                  }else{
                   this.router.navigate(['dashboard']);
                  }
                }else{
-               
+                this.login=false;
                  this.SignOut()
                }
+            }
+           
           }
         })
 
