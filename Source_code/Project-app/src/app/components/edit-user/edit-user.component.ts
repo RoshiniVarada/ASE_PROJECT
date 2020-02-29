@@ -23,6 +23,9 @@ export class EditUserComponent implements OnInit {
    'surname': [
      { type: 'required', message: 'Surname is required.' }
    ],
+   'email': [
+    { type: 'required', message: 'Email is required.' }
+  ],
    'age': [
      { type: 'required', message: 'Age is required.' },
    ],
@@ -54,6 +57,7 @@ export class EditUserComponent implements OnInit {
     this.exampleForm = this.fb.group({
       name: [this.item.name, Validators.required],
       surname: [this.item.surname, Validators.required],
+      email: [this.item.email, Validators.required],
       age: [this.item.age, Validators.required],
       role: [this.item.role, Validators.required]
     });

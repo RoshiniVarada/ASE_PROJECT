@@ -22,6 +22,9 @@ export class NewUserComponent implements OnInit {
    'surname': [
      { type: 'required', message: 'Surname is required.' }
    ],
+   'email': [
+    { type: 'required', message: 'Email is required.' }
+  ],
    'age': [
      { type: 'required', message: 'Age is required.' },
    ],
@@ -45,6 +48,7 @@ export class NewUserComponent implements OnInit {
     this.exampleForm = this.fb.group({
       name: ['', Validators.required ],
       surname: ['', Validators.required ],
+      email:['',Validators.required],
       age: ['', Validators.required ],     
       role: ['', Validators.required ]
     });

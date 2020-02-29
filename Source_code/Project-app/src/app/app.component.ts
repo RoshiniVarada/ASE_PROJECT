@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
   title = 'Project-app';
+  signin:boolean;
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -16,10 +17,11 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+        var jsonData=localStorage.getItem('user')
+        if(jsonData=="null"){
+          this.signin=false;
+        }else{
+          this.signin=true;
+        }
    }
-   goToHome(){
-    this.router.navigate(['home']);
-   }
-
 }

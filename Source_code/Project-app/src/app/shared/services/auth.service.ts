@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,14 @@ import { Router } from "@angular/router";
 
 export class AuthService {
   userData: any; // Save logged in user data
+  items: any;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,  
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone ,
+    public firebaseService: FirebaseService,// NgZone service to remove outside scope warning
   ) {    
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -37,7 +40,30 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+        //  this.router.navigate(['home']);
+
+
+         this.firebaseService.getUsers()
+         .subscribe(resp => {
+           this.items = resp;
+           for(var i=0;i< this.items.length;i++){
+                if(this.items[i].payload.doc.data().email==result.user.email){
+                  console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email)
+                  if(this.items[i].payload.doc.data().role=="admin"){
+                    console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email)
+                   this.router.navigate(['home']);
+                  }else{
+                   this.router.navigate(['dashboard']);
+                  }
+                }else{
+                 
+                  this.SignOut()
+                }
+           }
+         })
+
+
+
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -92,7 +118,31 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+         this.router.navigate(['home']);
+
+      this.firebaseService.getUsers()
+        .subscribe(resp => {
+          this.items = resp;
+          for(var i=0;i< resp.length;i++){
+               if(this.items[i].payload.doc.data().email==result.user.email){
+                console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email,i)
+                 if(this.items[i].payload.doc.data().role=="admin"){
+                  this.router.navigate(['home']);
+                 }else{
+                  this.router.navigate(['dashboard']);
+                 }
+               }else{
+               
+                 this.SignOut()
+               }
+          }
+        })
+
+
+
+
+
+
         })
       this.SetUserData(result.user);
     }).catch((error) => {
