@@ -38,6 +38,8 @@ import { EditUserResolver } from './components/edit-user/edit-user.resolver';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ListDetailsComponent } from './components/list-details/list-details.component';
+import { ErrorComponent } from './components/error/error.component';
+import { NonuserComponent } from './components/nonuser/nonuser.component';
 
 const MAT_MODULES  = [
   MatButtonModule,
@@ -60,7 +62,8 @@ const MAT_MODULES  = [
     NewUserComponent,
     EditUserComponent,
     ListDetailsComponent,
-    ListDetailsComponent
+    ErrorComponent,
+    NonuserComponent
 
   ],
   imports: [
