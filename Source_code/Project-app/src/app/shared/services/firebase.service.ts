@@ -5,6 +5,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class FirebaseService {
+  users: any;
+  sectionsCollection: any;
 
   constructor(public db: AngularFirestore) {}
 
@@ -42,6 +44,10 @@ export class FirebaseService {
     return this.db.collection('group',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
   }
 
+  searchUsersSection(value){
+    return this.db.collection('/group', ref => ref.where('section', '==', value)).snapshotChanges();
+    
+  }
 
   createUser(value, avatar){
     return this.db.collection('group').add({
@@ -51,7 +57,25 @@ export class FirebaseService {
       email:value.email,
       age: parseInt(value.age),
       role:value.role,
+      section:value.section,
       avatar: avatar
     });
+    
+    
   }
+
+ 
+
+  updateSection(userKey,value){
+    if(value.section==1){
+      value.section=2
+    }else{
+      value.section=1
+    }
+    return this.db.collection('group').doc(userKey).set(value);
+  }
+
+  
+
+  
 }
