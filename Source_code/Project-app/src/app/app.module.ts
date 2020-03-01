@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // Reactive Form
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 // App routing modules
 import { AppRoutingModule } from './shared/routing/app-routing.module';
 
@@ -71,6 +72,7 @@ const MAT_MODULES  = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
+    DragDropModule,
   MAT_MODULES
   ],
   exports: [MAT_MODULES],

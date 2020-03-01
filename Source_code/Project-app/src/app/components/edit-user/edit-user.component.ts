@@ -32,6 +32,9 @@ export class EditUserComponent implements OnInit {
    ],
    'role': [
     { type: 'required', message: 'Role is required.' },
+  ],
+  'section': [
+    { type: 'required', message: 'Section is required.' },
   ]
  };
 
@@ -62,7 +65,8 @@ export class EditUserComponent implements OnInit {
       surname: [this.item.surname, Validators.required],
       email: [this.item.email, Validators.required],
       age: [this.item.age, Validators.required],
-      role: [this.item.role, Validators.required]
+      role: [this.item.role, Validators.required],
+      section: [this.item.section, Validators.required],
     });
   }
 

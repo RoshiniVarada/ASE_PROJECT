@@ -109,6 +109,16 @@
                       <mat-error *ngIf="exampleForm.get('role').hasError(validation.type) && (exampleForm.get('role').dirty || exampleForm.get('role').touched)">{{validation.message}}</mat-error>
                     </ng-container>
                   </div>
+
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput type="number" min="1" max="2" placeholder="Section" class="form-control" formControlName="section">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.section">
+                      <mat-error *ngIf="exampleForm.get('section').hasError(validation.type) && (exampleForm.get('section').dirty || exampleForm.get('section').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+                  
         
                   <div class="row submit-button-container">
                     <div class="col-md-4">

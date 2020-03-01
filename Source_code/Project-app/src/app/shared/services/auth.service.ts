@@ -44,24 +44,27 @@ export class AuthService {
         //  this.router.navigate(['home']);
 
 
-         this.firebaseService.getUsers()
-         .subscribe(resp => {
-           this.items = resp;
-           for(var i=0;i< this.items.length;i++){
-                if(this.items[i].payload.doc.data().email==result.user.email){
-                  console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email)
-                  if(this.items[i].payload.doc.data().role=="admin"){
-                    console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email)
-                   this.router.navigate(['home']);
-                  }else{
-                   this.router.navigate(['dashboard']);
-                  }
-                }else{
-                 
-                  this.SignOut()
-                }
-           }
-         })
+        this.firebaseService.getUsers()
+        .subscribe(resp => {
+          this.items = resp;
+          for(var i=0;i< resp.length;i++){
+            if(this.login==false){
+              if(this.items[i].payload.doc.data().email==result.user.email){
+                console.log(this.items[i].payload.doc.data().role,this.items[i].payload.doc.data().email,i)
+                 if(this.items[i].payload.doc.data().role=="admin"){
+                   this.login=true;
+                  this.router.navigate(['home']);
+                 }else{
+                  this.router.navigate(['dashboard']);
+                 }
+               }else{
+                this.login=false;
+                 this.SignOut()
+               }
+            }
+           
+          }
+        })
 
 
 

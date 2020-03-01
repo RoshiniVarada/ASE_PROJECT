@@ -31,6 +31,9 @@ export class NewUserComponent implements OnInit {
    ],
    'role': [
      { type: 'required', message: 'Role is required.' },
+   ],
+   'section':[
+     {type: 'required',message:'Section is required'}
    ]
  };
 
@@ -53,7 +56,8 @@ export class NewUserComponent implements OnInit {
       surname: ['', Validators.required ],
       email:['',Validators.required],
       age: ['', Validators.required ],     
-      role: ['', Validators.required ]
+      role: ['', Validators.required ],
+      section:['',Validators.required]
     });
   }
 
