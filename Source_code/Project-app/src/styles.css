@@ -433,7 +433,7 @@ body .navbar-brand {
 }
 
 .sidebar-sticky {
-  padding-top: 1.2rem !important;
+ /* padding-top: 1.2rem !important;*/
 }
 
 /* Form */
@@ -587,12 +587,11 @@ body .table thead th {
   }*/
 
   .sidebar-sticky {
-    padding-top: 1.9rem !important;
+    /*padding-top: 1.9rem !important;*/
     height: auto;
   }
 
   .sidebar-sticky .nav li {
-    width: 50%;
     text-align: center;
     border-right: 1px solid #c7ceff;
   }
