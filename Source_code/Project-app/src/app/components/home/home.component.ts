@@ -80,5 +80,8 @@ export class HomeComponent implements OnInit {
   goToNewUser(){
     this.router.navigate(['/new-user']);
   }
+  goToNewSection(){
+    this.router.navigate(['/new-section']);
+  }
 
 }

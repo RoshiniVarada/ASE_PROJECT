@@ -14,7 +14,10 @@ import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.gua
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NewUserComponent } from 'src/app/components/new-user/new-user.component';
 import { EditUserComponent } from 'src/app/components/edit-user/edit-user.component';
+import { NewSectionComponent } from 'src/app/components/new-section/new-section.component';
+import { EditSectionComponent } from 'src/app/components/edit-section/edit-section.component';
 import { EditUserResolver } from 'src/app/components/edit-user/edit-user.resolver';
+import { EditSectionResolver } from 'src/app/components/edit-section/edit-section.resolver';
 import { ListDetailsComponent } from 'src/app/components/list-details/list-details.component';
 import { ErrorComponent } from 'src/app/components/error/error.component';
 import { NonuserComponent } from 'src/app/components/nonuser/nonuser.component';
@@ -31,8 +34,10 @@ const routes: Routes = [
   { path: 'error', component: ErrorComponent },
   { path: 'nonuser', component: NonuserComponent },
   { path: 'new-user', component: NewUserComponent },
-  {path:'list-details',component:ListDetailsComponent},
-  { path: 'details/:id', component: EditUserComponent, resolve:{data : EditUserResolver} }
+  { path: 'new-section', component: NewSectionComponent },
+  {path: 'list-details',component: ListDetailsComponent},
+  { path: 'details/:id', component: EditUserComponent, resolve:{data : EditUserResolver} },
+  { path: 'details/:id', component: EditSectionComponent, resolve:{data : EditSectionResolver} }
 ];
 
 @NgModule({

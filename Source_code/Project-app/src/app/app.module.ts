@@ -16,6 +16,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { HomeComponent } from './components/home/home.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { NewSectionComponent } from './components/new-section/new-section.component';
+import { EditSectionComponent } from './components/edit-section/edit-section.component';
 // Firebase services + enviorment module
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -61,6 +63,8 @@ const MAT_MODULES  = [
     HomeComponent,
     NewUserComponent,
     EditUserComponent,
+    NewSectionComponent,
+    EditSectionComponent,
     ListDetailsComponent,
     ErrorComponent,
     NonuserComponent

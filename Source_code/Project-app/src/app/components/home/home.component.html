@@ -11,7 +11,7 @@
   </a>
 </div>
   <div class="col-sm-6"></div>
-  
+
   <div class="col-sm-3" *ngIf="authService.userData as user">
     <img class="align-self-start mr-1 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                 alt="{{user.displayName}}">
@@ -37,17 +37,22 @@
               <i class="fas fa-sign-out-alt"></i>New User
             </a>
           </li>
+          <li class="nav-item" (click)="goToNewSection()">
+            <a class="nav-link" >
+              <i class="fas fa-sign-out-alt"></i>New Section
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
   </div>
-  
+
     <!-- Main content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="inner-adjust">
 
 
-      
+
 <div class="page-container addpadding">
 	<div class="content-container">
     <div class="row">
@@ -80,7 +85,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="list-group users-list">
       <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="row">
@@ -99,7 +104,7 @@
         </div>
       </div>
     </div>
-    
+
 	</div>
 </div>
 
