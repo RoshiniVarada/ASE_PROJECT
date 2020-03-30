@@ -8,14 +8,15 @@ app = Flask(__name__)
 def Connect():
     client = MongoClient("mongodb+srv://test:test@cluster0-1baqs.mongodb.net/test?retryWrites=true&w=majority")
     # Enter the DataBase Name
-    db = client.get_database('ase_project')
+    db = client.get_database('mock')
     return db
+
 
 @app.route("/subject_details", methods=['GET'])
 def hello():
     db_connection = Connect()
     result = []
-    records = db_connection.inteview
+    records = db_connection.interview
     for document in records.find():
         document['_id'] = str(document['_id'])
         result.append(document)
