@@ -2,7 +2,7 @@ import response_getter, json, re
 from pymongo import MongoClient
 import pymysql as pymysql
 
-client = MongoClient("mongodb+srv://test:test@cluster0-1baqs.mongodb.net/test?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://test:<Password>@cluster0-1baqs.mongodb.net/test?retryWrites=true&w=majority")
 
 # Enter the DataBase Name
 db = client.get_database('mock')
