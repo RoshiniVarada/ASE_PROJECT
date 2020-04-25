@@ -1,0 +1,43 @@
+.filter-by-age {
+  color: #6c757d;
+
+  .title {
+    align-self: center;
+  }
+
+  .age-slider {
+    width: 85%;
+  }
+}
+
+.users-list {
+  padding: 3vw 3vw 3vw 4vw;
+
+  .image-col {
+    text-align:center;
+
+    .image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .text-col {
+    margin: auto 0px;
+  }
+  .actions-col {
+    text-align: center;
+    margin: auto 0px;
+
+    .action {
+      line-height: 1;
+    }
+    .icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.addpadding{
+  padding-top:25px;
+}

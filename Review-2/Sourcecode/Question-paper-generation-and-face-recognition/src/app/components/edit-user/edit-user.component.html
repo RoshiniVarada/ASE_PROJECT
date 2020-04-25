@@ -1,0 +1,143 @@
+
+
+
+<!-- Sidebar navigation -->
+<div class="container-fluid" >
+  <div class="row">
+    <!-- Top navigation -->
+    <div>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 ">
+  <div class="col-sm-3">
+    <a  (click)="authService.SignOut()">
+    <i class="fas fa-sign-out-alt"></i>Log out
+  </a>
+</div>
+  <div class="col-sm-6"></div>
+  
+  <div class="col-sm-3" *ngIf="authService.userData as user">
+    <img class="align-self-start mr-1 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{user.displayName}}">
+    {{user.displayName}}
+  </div>
+ </nav>
+  </div>
+
+  <div class="row">
+
+
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fas fa-user"></i>User Profile
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>Home Component
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+        <div class="edit-page">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+            </ol>
+          </nav>
+          <div class="page-content">
+            <div class="row">
+              <div class="col col-md-4">
+                <img class="img-avatar" [src]="item.avatar">
+                <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Avatar</button>
+              </div>
+              <div class="col col-md-8">
+        
+                <form class="edit-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+        
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput placeholder="Name" class="form-control" formControlName="name">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.name">
+                      <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+        
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput placeholder="Surname" class="form-control" formControlName="surname">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.surname">
+                      <mat-error *ngIf="exampleForm.get('surname').hasError(validation.type) && (exampleForm.get('surname').dirty || exampleForm.get('surname').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+                  
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput placeholder="Email" class="form-control" formControlName="email">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.email">
+                      <mat-error *ngIf="exampleForm.get('email').hasError(validation.type) && (exampleForm.get('email').dirty || exampleForm.get('email').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+               
+        
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput type="number" min="0" max="100" placeholder="Age" class="form-control" formControlName="age">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.age">
+                      <mat-error *ngIf="exampleForm.get('age').hasError(validation.type) && (exampleForm.get('age').dirty || exampleForm.get('age').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+        
+        
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput placeholder="Role" class="form-control" formControlName="role">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.role">
+                      <mat-error *ngIf="exampleForm.get('role').hasError(validation.type) && (exampleForm.get('role').dirty || exampleForm.get('role').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+
+                  <div class="form-group">
+                    <mat-form-field class="input-style">
+                      <input matInput type="number" min="1" max="2" placeholder="Section" class="form-control" formControlName="section">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.section">
+                      <mat-error *ngIf="exampleForm.get('section').hasError(validation.type) && (exampleForm.get('section').dirty || exampleForm.get('section').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                  </div>
+                  
+        
+                  <div class="row submit-button-container">
+                    <div class="col-md-4">
+                      <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Save</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button mat-raised-button class="delete-button" color="warn" type="button" (click)="delete()">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+
+
+
+
+

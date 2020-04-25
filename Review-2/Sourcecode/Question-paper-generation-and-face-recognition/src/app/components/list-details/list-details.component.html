@@ -1,0 +1,99 @@
+
+
+
+<!-- Sidebar navigation -->
+<div class="container-fluid" >
+  <div class="row">
+    <!-- Top navigation -->
+    <div>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 ">
+  <div class="col-sm-3">
+    <a  (click)="authService.SignOut()">
+    <i class="fas fa-sign-out-alt"></i>Log out
+  </a>
+</div>
+  <div class="col-sm-6"></div>
+  
+  <div class="col-sm-3" *ngIf="authService.userData as user">
+    <img class="align-self-start mr-1 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{user.displayName}}">
+    {{user.displayName}}
+  </div>
+ </nav>
+  </div>
+
+  <div class="row">
+
+
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fas fa-user"></i>User Profile
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>Home Component
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+
+
+        <div class="container">
+     
+        
+          <div class="list-container">
+        
+            <div class="todo-container column-container">
+              <div class="list"
+                   cdkDropList
+                   #todoList="cdkDropList"
+                   [cdkDropListData]="section1"
+                   [cdkDropListConnectedTo]="[doneList]"
+                   (cdkDropListDropped)="onDrop($event)">
+                <h2>Section1</h2>
+                <mat-card *ngFor="let todo of section1" cdkDrag>
+                  <mat-card-header>
+                    <mat-card-title>{{todo.payload.doc.data().name}}</mat-card-title>
+                    <mat-card-subtitle>{{todo.payload.doc.data().section}}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+              </div>
+            </div>
+        
+            <div class="done-container column-container">
+              <div class="list"
+                   cdkDropList
+                   #doneList="cdkDropList"
+                   [cdkDropListData]="section2"
+                   [cdkDropListConnectedTo]="todoList"
+                   (cdkDropListDropped)="onDrop($event)">
+                <h2>Section2</h2>
+                <mat-card *ngFor="let complete of section2" cdkDrag>
+                  <mat-card-header>
+                    <mat-card-title>{{complete.payload.doc.data().name}}</mat-card-title>
+                    <mat-card-subtitle>{{complete.payload.doc.data().section}}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
