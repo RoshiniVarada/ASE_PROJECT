@@ -1,0 +1,70 @@
+<div class="wrapper ">
+  <div class="main-panel">
+    <!-- Navbar -->
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="row ">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let subject of subjects">
+          <app-stat  [subject]="subject" [pageName]="'facultylayout'"></app-stat>   
+        </div>
+        
+      </div>
+      <hr /> 
+
+      <div class="alert alert-info alert-dismissible fade show" *ngFor="let alert of alerts">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (close)="closeAlert(alert)" >
+            <i class="fa fa-times"></i>
+          </button>
+          <button *ngIf="alert.edit==='false'" type="button"  aria-hidden="true" class=" classedit close" (click)="editAlert(alert)" >
+            <i class="fa fa-edit"></i>
+          </button>
+          <button *ngIf="alert.edit==='true'" type="button"  aria-hidden="true" class=" classedit close" (click)="saveAlert(alert)" >
+            <i class="fa fa-save"></i>
+          </button>
+          <button type="button"  aria-hidden="true" class=" classremove close" (click)="deleteAlert(alert)"  >
+              <i class="fa fa-trash"></i>
+            </button>
+          <span  *ngIf="alert.edit==='false'">{{ alert.payload.doc.data().description}}</span>
+          <span *ngIf="alert.edit==='true'"><input type="text" class="add_alert" value="{{alert.payload.doc.data().description}}"  [(ngModel)]="textAlert"></span>
+        </div>
+      
+        <div class="alert alert-info alert-dismissible fade show" *ngIf="removeCreate=='true'">
+          <button type="button" aria-hidden="true"  aria-hidden="true" class="close" (click)="createAlert()">
+            <i class="fa fa-save"></i>
+          </button>
+          <button type="button"  aria-hidden="true" class=" classremove close" (click)="removeAlert()" >
+            <i class="fa fa-trash"></i>
+          </button>
+          <input   type="text" class="add_alert" [(ngModel)]="newAlert">
+        </div>
+      
+          <hr />
+          <div class="row">
+            <div class="col-lg-8">
+
+              <div class="card ">
+                    <app-notification></app-notification>
+              </div>
+              <div class="card">
+              <app-chat></app-chat>
+            </div>
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+     
+
+              <div class="card card-default notifstyle">
+              <app-timeline></app-timeline>
+                     
+                 </div>
+     
+    
+              
+    
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+     
+    </div>
+  </div>
+</div>

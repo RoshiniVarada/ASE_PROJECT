@@ -1,0 +1,112 @@
+<div class="wrapper overflow_class">
+  <div class="main-panel">
+    <div class="content">
+      <div class="row" *ngIf="authService.userData as user">
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+              <img src="https://www.lifeinvestasset.com/wp-content/uploads/2018/11/damir-bosnjak-226653-unsplash.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="...">
+                  <h5 class="title"> {{user.displayName}}</h5>
+                </a>
+                <p class="description">
+                  @ {{user.email}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card card-user">
+            <div class="card-header">
+              <h5 class="card-title">Edit Profile</h5>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+                <div class="row">
+                  <div class="col-md-5 col-5 pr-1">
+                    <div class="form-group" >
+                      <label>Company</label>
+                      <input type="text" class="form-control" disabled="" placeholder="Academia" formControlName="Company">
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6 px-1">
+                    <div class="form-group" >
+                      <label>Username</label>
+                      <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+                    </div>
+                  </div>
+                  <div class="col-md-4 pl-1">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" placeholder="Email"  formControlName="email">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 pr-1">
+                    <div class="form-group" >
+                      <label>First Name</label>
+                      <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName">
+                    </div>
+                  </div>
+                  <div class="col-md-6 pl-1">
+                    <div class="form-group" >
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control" placeholder="Home Address" formControlName="Address">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label>City</label>
+                      <input type="text" class="form-control" placeholder="City"  formControlName="City">
+                    </div>
+                  </div>
+                  <div class="col-md-4 px-1">
+                    <div class="form-group" >
+                      <label>Country</label>
+                      <input type="text" class="form-control" placeholder="Country"  formControlName="Country">
+                    </div>
+                  </div>
+                  <div class="col-md-4 pl-1">
+                    <div class="form-group">
+                      <label>Postal Code</label>
+                      <input type="number" class="form-control" placeholder="ZIP Code" formControlName="PostalCode">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Role</label>
+                      <input type="text" class="form-control" placeholder="Role"  formControlName="Role">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto">
+                    <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

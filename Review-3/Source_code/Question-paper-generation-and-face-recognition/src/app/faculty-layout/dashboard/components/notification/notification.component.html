@@ -1,0 +1,21 @@
+
+
+
+
+
+<div class="panel panel-scrolling">
+    <div class="contact-profile">
+        <i class="fa fa-history fa-fw img_header" aria-hidden="true"></i>
+        <p>Recent Activity</p>
+      </div>
+    <div class="panel-body">
+        <ul class="list-unstyled activity-list">
+            <li *ngFor="let notif of notifs">
+               
+                <i class="fa fa-plus activity-icon acts_text"  aria-hidden="true"></i>
+                <p><a style="font-weight: bold;">{{notif.payload.doc.data().title}}</a> {{notif.payload.doc.data().description}} <span class="timestamp">20 minutes ago</span></p>
+            </li>
+        </ul>
+        <button type="button" class="btn  btn-bottom center-block">Load More</button>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+
+  
+            <div class="container" *ngIf="assignments==false">
+                <app-quiz></app-quiz>
+
+
+
+
+
+
+
+
+
+                
+              </div>
+
+
+
+                           <!----assignments-->
+             <div class="card card-user" *ngIf="assignments==true">
+
+              <div class="card-header">
+                   <h5 class="card-title">Assignments</h5>                    
+              </div>
+
+              <div class="card-body">
+
+                  <div class="blog-card" *ngFor="let assgn of assgnSub">
+                      <div class="description">
+                          <h4>Assignment{{assgn.payload.doc.data().No}} <span style="float:right;">{{assgn.payload.doc.data().Subject}}</span> </h4>
+                          <h6>Max Marks {{assgn.payload.doc.data().Max_marks}}</h6>
+                          <p class="read-more">
+                              <a (click)="taketest(assgn)">Take test</a>
+                          </p>
+                      </div>
+                  </div>
+             </div>
+
+          </div>
+            <!----assignments-->
+  
+  
+  
+  
+  

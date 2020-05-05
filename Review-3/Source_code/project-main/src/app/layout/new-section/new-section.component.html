@@ -1,0 +1,84 @@
+<div class="wrapper overflow_class"  *ngIf="showcomp">
+    <div class="main-panel">
+      <div class="content">
+        <h2 class="alignment"><strong>{{valuesnew.name}}</strong></h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+
+  
+              <div class="card-header" (click)="showfn('modules')">
+                <h5 class="card-title">Modules</h5>
+              </div>
+              <div class="card-header" (click)="showfn('assignments')">
+                <h5 class="card-title">Assignments</h5>
+              </div>
+              <div class="card-header"  (click)="showfn('learnings')">
+                <h5 class="card-title">Active Learning</h5>
+              </div>
+          <!--    <div class="card-header"  (click)="showfn('grades')">
+                <h5 class="card-title">Grades</h5>
+              </div> -->
+
+            </div>
+          </div>
+
+
+          <div class="col-md-8">
+
+            <!----modules-->
+             <div class="card card-user" *ngIf="modules">
+
+                <div class="card-header">
+                     <h5 class="card-title">Modules</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="blog-card" *ngFor="let sub of modulesSub">
+                        <div class="description">
+                            <h4>{{sub.payload.doc.data().Title}}</h4>
+                            <p class="read-more">
+                                <a href="{{sub.payload.doc.data().Url}}">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+              <!----modules-->
+
+
+             <!----assignments-->
+             <div class="card card-user" *ngIf="assignments">
+
+                <div class="card-header">
+                     <h5 class="card-title">Assignments</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="blog-card" *ngFor="let assgn of assgnSub">
+                        <div class="description">
+                            <h4>Assignment{{assgn.payload.doc.data().No}}</h4>
+                            <h6>Max Marks {{assgn.payload.doc.data().Max_marks}}</h6>
+                            <p class="read-more">
+                                <a (click)="taketest(assgn)">Take test</a>
+                            </p>
+                        </div>
+                    </div>
+               </div>
+
+            </div>
+              <!----assignments-->
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

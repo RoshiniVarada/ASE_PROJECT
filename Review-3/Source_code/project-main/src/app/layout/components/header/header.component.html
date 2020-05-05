@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#">Academia</a>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="javascript:void(0)" 
+                    style="padding: 0.375rem 1rem !important; border-color: #999;"
+                    (click)="rltAndLtr()"
+                >
+                    RTL/LTR
+                </a>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a  href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+                </a>
+                <ul class="dropdown-menu-right messages" ngbDropdownMenu  *ngIf="authService.userData as user">
+                    <li class="media">
+                        <img class="image_chat"
+                        src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="Generic placeholder image"
+                        >
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last">Python exam is scheduled next week</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="image_chat"
+                        src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                            alt="Generic placeholder image"
+                        >
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last">Scheduled an exam next week</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="image_chat"
+                         src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                            alt="Generic placeholder image"
+                        />
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last"> Review delayed scheduled next week</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a href="javascript:void(0)" class="dropdown-item">
+                        {{ 'Pending Task' | translate }} <span class="badge badge-info">6</span>
+                    </a>
+                    <a href="javascript:void(0)" class="dropdown-item">
+                        {{ 'In queue' | translate }} <span class="badge badge-info"> 13</span>
+                    </a>
+                    <a href="javascript:void(0)" class="dropdown-item">
+                        {{ 'Mail' | translate }} <span class="badge badge-info"> 45</span>
+                    </a>
+                    <li class="dropdown-divider"></li>
+                    <a href="javascript:void(0)" class="dropdown-item">
+                        {{ 'View All' | translate }}
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-language"></i> {{ 'Language' | translate }} <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('en')">
+                        {{ 'English' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fr')">
+                        {{ 'French' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('ur')">
+                        {{ 'Urdu' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('es')">
+                        {{ 'Spanish' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('it')">
+                        {{ 'Italian' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fa')">
+                        {{ 'Farsi' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('de')">
+                        {{ 'German' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('zh-CHS')">
+                        {{ 'Simplified Chinese' | translate }}
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown *ngIf="authService.userData as user">
+                <a href="javascript:void(0)"  ngbDropdownToggle>
+                   <img class="profileimage" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"> {{user.displayName}} <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" [routerLink]="['layout/edit-user']">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['layout/edit-user']">
+                        <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
+                    </a>
+                    <a class="dropdown-item" (click)="authService.SignOut()">
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

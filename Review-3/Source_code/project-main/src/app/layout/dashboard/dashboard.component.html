@@ -1,0 +1,55 @@
+<div class="wrapper ">
+  <div class="main-panel">
+    <!-- Navbar -->
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="row ">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let subject of subjects">
+          <app-stat  [subject]="subject" [pageName]="'layout'"></app-stat>   
+        </div>
+        
+      </div>
+      <hr /> 
+
+      <div class="alert alert-info alert-dismissible fade show" *ngFor="let alert of alerts">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (close)="closeAlert(alert)" >
+            <i class="fa fa-times"></i>
+          </button>
+          <span>{{ alert.payload.doc.data().description}}</span>
+        </div>
+      
+          <hr />
+          <div class="row">
+            <div class="col-lg-8">
+
+              <div class="card ">
+                    <app-notification></app-notification>
+              </div>
+              <div class="card card-default notifstyle">
+               
+              <app-todolist></app-todolist>
+                     
+                 </div>
+              <div class="card">
+              <app-chat></app-chat>
+            </div>
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+     
+
+              <div class="card card-default notifstyle">
+              <app-timeline></app-timeline>
+                     
+                 </div>
+     
+    
+              
+    
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+.progress__svg {
+  transform: rotate(-90deg);
+}
+
+.progress__meter,
+.progress__value {
+  fill: none;
+}
+
+.progress__meter {
+  stroke: #ccc;
+}
+
+.progress__value {
+  stroke: #4caf50;
+  transition: all;
+}
+
+@media screen and (min-width: 768px) {
+  .progress__value-text {
+    position: absolute;
+    top: 4rem;
+    left: 14rem;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .progress__value-text {
+    position: absolute;
+    top: 48px;
+    left: 45px;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 300px){
+  .progress__value-text {
+    position: absolute;
+    top: 48px;
+    left: 45px;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 320px){
+  .progress__value-text {
+    position: absolute;
+    top: 4rem;
+    left: 8rem;
+    font-size: 20px;
+  }
+  }
+  @media screen and (min-width: 375px){
+    .progress__value-text {
+      position: absolute;
+      top: 48px;
+      left: 45px;
+      font-size: 20px;
+    }
+    }
+    @media screen and (min-width: 360px){
+      .progress__value-text {
+        position: absolute;
+        top: 4rem;
+        left: 9.0rem;
+        font-size: 20px;
+      }
+      }
+@media screen and (min-width: 405px) {
+  .progress__value-text {
+    position: absolute;
+    top: 4rem;
+    left: 10.5rem;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .progress__value-text {
+    position: absolute;
+    top: 48px;
+    left: 45px;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 767px) {
+  .progress__value-text {
+    position: absolute;
+    top: 4rem;
+    left: 14rem;
+    font-size: 20px;
+  }
+}
+

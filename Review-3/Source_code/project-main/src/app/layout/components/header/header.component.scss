@@ -1,0 +1,65 @@
+$topnav-background-color: #3f5c80;
+:host {
+    .navbar {
+        background-color: $topnav-background-color;
+        .navbar-brand {
+            color: #fff;
+            margin-left:1.5vw;
+        }
+        .nav-item > a {
+            color: #f8f9fa;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .messages {
+        width: 300px;
+        .media {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 10px;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .media-body {
+            h5 {
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .small {
+                margin: 0;
+            }
+            .last {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+.profileimage{
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    margin-bottom: -4.55px;
+}
+.search_class{
+    border-radius: 17px;
+    margin-left: 31px;
+    width: 239px;
+    padding-left: 20px;
+}
+
+
+.image_chat{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 30px;
+}
+
+a{
+    padding-right: 1vw;
+}

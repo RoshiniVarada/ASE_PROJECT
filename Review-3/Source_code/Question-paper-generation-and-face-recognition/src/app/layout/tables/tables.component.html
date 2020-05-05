@@ -1,0 +1,49 @@
+<div [@routerTransition]>
+    <div class="row text_center">
+        <div class="col-xl-12 col-lg-12 col-md-6">
+           
+            <div class="card lg-12 mb-6">
+                <div class="card-header  text_bold">People in the section</div>
+                <table class="card-body table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                           
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of section; let index = index">
+                            <th scope="row">{{index+1}}</th>
+                            <td>{{user.payload.doc.data().Username}}</td>
+                            <td>{{user.payload.doc.data().email}}</td>
+                           
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+<br><br>
+            <div class="card lg-12 mb-6">
+                <div class="card-header text_bold">All People</div>
+                <table class="card-body table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                       
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let user of Users; let index = index">
+                        <th scope="row">{{index+1}}</th>
+                        <td>{{user.payload.doc.data().Username}}</td>
+                        <td>{{user.payload.doc.data().email}}</td>
+                       
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>

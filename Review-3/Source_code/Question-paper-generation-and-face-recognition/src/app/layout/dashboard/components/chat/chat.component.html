@@ -1,0 +1,31 @@
+<div id="frame">
+
+	<div class="content">
+		<div class="contact-profile">
+			<i class="fa fa-comments fa-fw img_header" aria-hidden="true"></i>
+			<p>Chat</p>
+		</div>
+		<div class="messages">
+			<ul>
+                <div *ngFor="let message of messages" >
+				<li class=" {{ userData.displayName === message.from.name? 'sent': 'replies' }}">
+
+					<img class="image_chat" *ngIf="message.action === undefined"  [src]="message.from.avatar" alt="User Avatar">
+                    <p>{{message.content}} <span class=" {{ userData.displayName === message.from.name? 'senttime': 'repliestime' }}">{{message.timeFormat}}</span></p>
+                    
+                </li>
+            </div>
+			</ul>
+		</div>
+		<div class="message-input">
+			<div class="wrap">
+			<input type="text" maxlength="140"
+            placeholder="{{'Type your message'}}"
+            [(ngModel)]="messageContent"
+            (keyup.enter)="sendMessage(messageContent)" />
+		<!--	<i class="fa fa-paperclip attachment" aria-hidden="true"></i>  -->
+			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true" (click)="sendMessage(messageContent)"></i></button>
+			</div>
+		</div>
+	</div>
+</div>

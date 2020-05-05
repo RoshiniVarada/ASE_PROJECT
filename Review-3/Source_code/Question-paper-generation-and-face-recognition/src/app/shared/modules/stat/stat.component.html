@@ -1,0 +1,25 @@
+
+<div class="card text-white bg_class"> 
+    <div class="card-header">
+        <div class="row">
+            <div class="col-5 col-md-4">
+                <i class="fa {{subject.payload.doc.data().icon}} fa-3x icon_class"></i>
+            </div>
+            <div class="col col-xs-9 text-right">
+                <div class="d-block huge">{{subject.payload.doc.data().no}}</div>
+                <div class="d-block">{{subject.payload.doc.data().name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer card_text1">
+        <span class="float-left">View Details {{subject.payload.doc.data().data}}</span>
+        <a (click)="viewdetails(subject,pageName)" class="float-right card-inverse">
+            <span ><i class="fa fa-arrow-circle-right"></i></span>
+        </a>
+    </div>
+</div>
+
+
+
+
+
